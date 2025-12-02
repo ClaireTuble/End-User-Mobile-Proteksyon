@@ -7,6 +7,8 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -17,19 +19,19 @@ const fireIncidents = [
     id: '1',
     title: '3-Alarm Fire Controlled in ZC',
     date: 'October 08, 2025',
-    imageUrl: 'https://via.placeholder.com/800x400?text=Fire+1',
+    imageUrl: require('../../../assets/FirstArticle.jpg'),
   },
   {
     id: '2',
     title: 'Grass Fire Spreads Near Vacant Lot in San Pedro',
     date: 'October 12, 2025',
-    imageUrl: 'https://via.placeholder.com/800x400?text=Fire+2',
+    imageUrl: require('../../../assets/small-grassfire.jpg'),
   },
   {
     id: '3',
     title: 'Kitchen Fire Contained in San Pedro Residence',
     date: 'October 15, 2025',
-    imageUrl: 'https://via.placeholder.com/800x400?text=Fire+3',
+    imageUrl: require('../../../assets/Kitchen-Fire.jpg'),
   },
 ];
 
@@ -43,14 +45,14 @@ export const NewsRoomScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-        
-        {/* Red header banner */}
-        <View style={styles.banner}>
-          <Text style={styles.bannerTitle}>Welcome to the News Room</Text>
-          <Text style={styles.bannerSubtitle}>
-            Stay updated on incidents, and BFP announcements.
-          </Text>
-        </View>
+        <View style={styles.contentWrapper}>
+          {/* Red header banner */}
+          <View style={styles.banner}>
+            <Text style={styles.bannerTitle}>Welcome to the News Room</Text>
+            <Text style={styles.bannerSubtitle}>
+              Stay updated on incidents, and BFP announcements.
+            </Text>
+          </View>
 
         {/* Section with search */}
         <View style={styles.sectionHeaderRow}>
@@ -61,7 +63,6 @@ export const NewsRoomScreen: React.FC = () => {
               <Ionicons name="search" size={16} color="#999" style={styles.searchIcon} />
               <TextInput
                 style={styles.searchInput}
-                placeholder="Search"
                 placeholderTextColor="#999"
               />
             </View>
@@ -82,7 +83,7 @@ export const NewsRoomScreen: React.FC = () => {
               onPress={() => handleArticlePress(incident.id)}
             >
               <Image
-                source={{ uri: incident.imageUrl }}
+                source={incident.imageUrl}
                 style={styles.cardImage}
                 resizeMode="cover"
               />
@@ -96,7 +97,7 @@ export const NewsRoomScreen: React.FC = () => {
             </TouchableOpacity>
           ))}
         </View>
-
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -105,20 +106,21 @@ export const NewsRoomScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',  // 🔥 Match login header style
+    backgroundColor: '#f5f5f5',
   },
-
   scrollView: {
     flex: 1,
     backgroundColor: 'transparent',
   },
   scrollContent: {
-    paddingBottom: 60,
-    backgroundColor: '#f5f5f5', // So content has correct BG below banner
+    paddingBottom: 100,
+  },
+  contentWrapper: {
+    backgroundColor: '#f5f5f5',
   },
   banner: {
     backgroundColor: '#860d0dff',
-    paddingTop: 56,
+    paddingTop: 20,
     paddingBottom: 20,
     paddingHorizontal: 16,
   },

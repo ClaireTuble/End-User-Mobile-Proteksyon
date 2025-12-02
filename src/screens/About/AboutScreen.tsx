@@ -15,7 +15,7 @@ const AboutScreen: React.FC = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -29,90 +29,98 @@ const AboutScreen: React.FC = () => {
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {/* App Logo Placeholder */}
-        <View style={styles.logoContainer}>
-          <View style={styles.logoPlaceholder}>
-            <Text style={styles.logoText}>APP</Text>
+        <View style={styles.contentContainer}>
+          {/* App Logo Placeholder */}
+          <View style={styles.logoContainer}>
+            <View style={styles.logoPlaceholder}>
+              <Text style={styles.logoText}>APP</Text>
+            </View>
+            <Text style={styles.appName}>Emergency Response App</Text>
+            <Text style={styles.appVersion}>Version 1.0.0</Text>
           </View>
-          <Text style={styles.appName}>Emergency Response App</Text>
-          <Text style={styles.appVersion}>Version 1.0.0</Text>
-        </View>
 
-        {/* About Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>About This App</Text>
-          <Text style={styles.sectionText}>
-            A comprehensive emergency response application designed to provide quick access to fire safety information, emergency contacts, and real-time updates. Developed in partnership with the Bureau of Fire Protection to enhance public safety and emergency preparedness.
-          </Text>
-        </View>
-
-        {/* BFP Section */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <View style={styles.bfpLogo}>
-              <Text style={styles.bfpText}>BFP</Text>
-            </View>
-            <Text style={styles.sectionTitle}>Bureau of Fire Protection</Text>
+          {/* About Section */}
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>About This App</Text>
+            <Text style={styles.sectionText}>
+              A comprehensive emergency response application designed to provide quick access to fire safety information, emergency contacts, and real-time updates. Developed in partnership with the Bureau of Fire Protection to enhance public safety and emergency preparedness.
+            </Text>
           </View>
-          <Text style={styles.sectionText}>
-            The Bureau of Fire Protection (BFP) is the government agency responsible for fire prevention, suppression, and emergency response services in the Philippines. Committed to saving lives and protecting property through professional firefighting and fire prevention services.
-          </Text>
-          <View style={styles.bfpServices}>
-            <View style={styles.serviceItem}>
-              <Ionicons name="flame" size={16} color="#E53935" />
-              <Text style={styles.serviceText}>Fire Prevention</Text>
-            </View>
-            <View style={styles.serviceItem}>
-              <Ionicons name="water" size={16} color="#E53935" />
-              <Text style={styles.serviceText}>Emergency Response</Text>
-            </View>
-            <View style={styles.serviceItem}>
-              <Ionicons name="shield-checkmark" size={16} color="#E53935" />
-              <Text style={styles.serviceText}>Public Safety</Text>
-            </View>
-          </View>
-        </View>
 
-        {/* Developers Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Development Team</Text>
-          <View style={styles.developerContainer}>
-            <View style={styles.developerCard}>
-              <View style={styles.developerAvatar}>
-                <Ionicons name="code" size={24} color="#fff" />
+          {/* BFP Section */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.bfpLogo}>
+                <Text style={styles.bfpText}>BFP</Text>
               </View>
-              <View style={styles.developerInfo}>
-                <Text style={styles.developerName}>Your Development Team</Text>
-                <Text style={styles.developerRole}>Mobile App Developers</Text>
-                <Text style={styles.developerDescription}>
-                  Dedicated team of developers committed to creating innovative solutions for public safety and emergency response.
-                </Text>
+              <Text style={styles.sectionTitle}>Bureau of Fire Protection</Text>
+            </View>
+            <Text style={styles.sectionText}>
+              The Bureau of Fire Protection (BFP) is the government agency responsible for fire prevention, suppression, and emergency response services in the Philippines. Committed to saving lives and protecting property through professional firefighting and fire prevention services.
+            </Text>
+            <View style={styles.bfpServices}>
+              <View style={styles.serviceItem}>
+                <Ionicons name="flame" size={16} color="#860d0dff" />
+                <Text style={styles.serviceText}>Fire Prevention</Text>
+              </View>
+              <View style={styles.serviceItem}>
+                <Ionicons name="water" size={16} color="#860d0dff" />
+                <Text style={styles.serviceText}>Emergency Response</Text>
+              </View>
+              <View style={styles.serviceItem}>
+                <Ionicons name="shield-checkmark" size={16} color="#860d0dff" />
+                <Text style={styles.serviceText}>Public Safety</Text>
               </View>
             </View>
           </View>
-        </View>
 
-        {/* Contact Section */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Contact Information</Text>
-          <View style={styles.contactItem}>
-            <Ionicons name="call" size={20} color="#E53935" />
-            <Text style={styles.contactText}>BFP Zamboanga Emergency: 160-000-00</Text>
+          {/* Developers Section */}
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Development Team</Text>
+            <View style={styles.developerContainer}>
+              <View style={styles.developerCard}>
+                <View style={styles.developerAvatar}>
+                  <Ionicons name="code" size={24} color="#fff" />
+                </View>
+                <View style={styles.developerInfo}>
+                  <Text style={styles.developerName}>WMSU Development Team</Text>
+                  <Text style={styles.developerRole}>Information Technology Students</Text>
+                  <Text style={styles.developerDescription}>
+                    The proponents of this project are a team of five aspiring developers from Western Mindanao State University (WMSU). As Information Technology students, the team is committed to applying modern technologies to real-world problems that impact public safety and community welfare.
+                  </Text>
+                  <Text style={styles.developerDescription}>
+                    This system was developed in close collaboration with the Bureau of Fire Protection (BFP), whose insights and operational needs guided the project's design and functionality. Through this partnership, the developers gained practical understanding of emergency response workflows and aimed to create a solution that enhances coordination, improves efficiency, and supports both responders and the public.
+                  </Text>
+                  <Text style={styles.developerDescription}>
+                    Driven by innovation and service, the development team strives to build technology that can contribute to a safer and more responsive community.
+                  </Text>
+                </View>
+              </View>
+            </View>
           </View>
-          <View style={styles.contactItem}>
-            <Ionicons name="globe" size={20} color="#E53935" />
-            <Text style={styles.contactText}>www.bfp.gov.ph</Text>
-          </View>
-        </View>
 
-        {/* Footer */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>
-            © 2025 Emergency Response App
-          </Text>
-          <Text style={styles.footerSubtext}>
-            Developed in partnership with BFP
-          </Text>
+          {/* Contact Section */}
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Contact Information</Text>
+            <View style={styles.contactItem}>
+              <Ionicons name="call" size={20} color="#860d0dff" />
+              <Text style={styles.contactText}>BFP Zamboanga Emergency: 160-000-00</Text>
+            </View>
+            <View style={styles.contactItem}>
+              <Ionicons name="globe" size={20} color="#860d0dff" />
+              <Text style={styles.contactText}>www.bfp.gov.ph</Text>
+            </View>
+          </View>
+
+          {/* Footer */}
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>
+              © 2025 Emergency Response App
+            </Text>
+            <Text style={styles.footerSubtext}>
+              Developed in partnership with BFP
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -125,7 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   header: {
-    backgroundColor: '#B71C1C',
+    backgroundColor: '#860d0dff',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -152,7 +160,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingBottom: 100,
+    backgroundColor: '#f5f5f5',
+  },
+  contentContainer: {
+    paddingHorizontal: 16,
+    paddingBottom: 40,
   },
   logoContainer: {
     alignItems: 'center',
@@ -164,7 +176,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
@@ -205,7 +217,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#B71C1C',
+    backgroundColor: '#860d0dff',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -256,7 +268,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,

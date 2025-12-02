@@ -25,6 +25,9 @@ import { FireTruckTrackingScreen } from './src/screens/Emergency/FireTruckTracki
 import { EmergencyCallModal } from './src/components/EmergencyCallModal';
 import AboutScreen from './src/screens/About/AboutScreen';
 import HelpScreen from './src/screens/Help/HelpScreen';
+import { SettingsScreen } from './src/screens/Settings/SettingsScreen';
+import { PrivacySecurityScreen } from './src/screens/Settings/PrivacySecurityScreen';
+import { SendFeedbackScreen } from './src/screens/Settings/SendFeedbackScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -97,7 +100,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigat
                 <Ionicons
                   name={iconName}
                   size={20}
-                  color={isFocused ? '#E53935' : 'rgba(255,255,255,0.6)'}
+                  color={isFocused ? '#ffffff' : 'rgba(255,255,255,0.6)'}
                 />
                 <Text
                   style={[
@@ -182,6 +185,21 @@ const App: React.FC = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PrivacySecurity"
+          component={PrivacySecurityScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SendFeedback"
+          component={SendFeedbackScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="MapScreen"
           component={MapScreen}
           options={{ headerShown: false }}
@@ -247,7 +265,7 @@ const tabStyles = StyleSheet.create({
     fontWeight: '500',
   },
   tabLabelFocused: {
-    color: '#E53935',
+    color: '#ffffff',
     fontWeight: '600',
   },
   sideTab: {

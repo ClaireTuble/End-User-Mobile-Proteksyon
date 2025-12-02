@@ -8,9 +8,12 @@ import {
   ScrollView,
   Alert,
   Image,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const ProfileScreen: React.FC = () => {
   const navigation = useNavigation<any>();
@@ -82,7 +85,7 @@ export const ProfileScreen: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -261,7 +264,7 @@ export const ProfileScreen: React.FC = () => {
           </TouchableOpacity>
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -271,8 +274,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   header: {
-    backgroundColor: '#E53935',
-    paddingTop: 60,
+    backgroundColor: '#860d0dff',
+    paddingTop: Platform.OS === 'android' ? 40 : 20,
     paddingBottom: 20,
     paddingHorizontal: 20,
     flexDirection: 'row',
@@ -327,7 +330,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,

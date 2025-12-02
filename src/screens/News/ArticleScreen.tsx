@@ -16,7 +16,7 @@ const mockArticles = {
     title: '3-Alarm Fire Controlled in ZC',
     date: 'October 08, 2025',
     author: 'BFP News Team',
-    imageUrl: 'https://via.placeholder.com/800x400/e0e0e0/666666?text=Article+Image',
+    imageUrl: require('../../../assets/FirstArticle.jpg'),
     content: `A massive 3-alarm fire broke out in the commercial district of Zamboanga City earlier today...`,
     category: 'Fire Incident',
     readTime: '3 min read',
@@ -26,9 +26,19 @@ const mockArticles = {
     title: 'Kitchen Fire Contained in San Pedro Residence',
     date: 'October 15, 2025',
     author: 'BFP News Team',
-    imageUrl: 'https://via.placeholder.com/800x400/e0e0e0/666666?text=Article+Image',
+    imageUrl: require('../../../assets/Kitchen-Fire.jpg'),
     content: `A kitchen fire was successfully contained at a residential property in San Pedro...`,
     category: 'Residential Fire',
+    readTime: '2 min read',
+  },
+  '3': {
+    id: '3',
+    title: 'Grass Fire Spreads Near Vacant Lot in San Pedro',
+    date: 'October 12, 2025',
+    author: 'BFP News Team',
+    imageUrl: require('../../../assets/small-grassfire.jpg'),
+    content: `A grass fire spread rapidly near a vacant lot in San Pedro earlier this week...`,
+    category: 'Wildfire',
     readTime: '2 min read',
   },
 };
@@ -66,7 +76,6 @@ export const ArticleScreen: React.FC = () => {
           <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
 
-        <Text style={styles.headerTitle}>Article</Text>
 
         <View style={styles.headerButtons}>
           <TouchableOpacity style={styles.headerButton}>
@@ -86,7 +95,7 @@ export const ArticleScreen: React.FC = () => {
         {/* Hero Image */}
         <View style={styles.heroImageContainer}>
           <Image
-            source={{ uri: article.imageUrl }}
+            source={article.imageUrl}
             style={styles.heroImage}
             resizeMode="cover"
           />
@@ -123,7 +132,7 @@ export const ArticleScreen: React.FC = () => {
 
             <TouchableOpacity style={styles.relatedCard}>
               <Image
-                source={{ uri: 'https://via.placeholder.com/100x60/e0e0e0/666666?text=Related' }}
+                source={require('../../../assets/Kitchen-Fire.jpg')}
                 style={styles.relatedImage}
               />
               <View style={styles.relatedContent}>
@@ -136,7 +145,7 @@ export const ArticleScreen: React.FC = () => {
 
             <TouchableOpacity style={styles.relatedCard}>
               <Image
-                source={{ uri: 'https://via.placeholder.com/100x60/e0e0e0/666666?text=Related' }}
+                source={require('../../../assets/Kitchen-Fire.jpg')}
                 style={styles.relatedImage}
               />
               <View style={styles.relatedContent}>
@@ -232,7 +241,7 @@ const styles = StyleSheet.create({
   },
 
   categoryBadge: {
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,

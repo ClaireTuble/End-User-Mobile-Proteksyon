@@ -10,6 +10,8 @@ import {
   TextInput,
   Modal,
   Alert,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -22,13 +24,13 @@ const featuredNews = [
     id: '1',
     title: '3-Alarm Fire Controlled in ZC',
     date: 'October 08, 2025',
-    imageUrl: 'https://via.placeholder.com/600x300',
+    imageUrl: require('../../../assets/FirstArticle.jpg'),
   },
   {
     id: '2',
     title: 'Kitchen Fire Contained in San Pedro Residence',
     date: 'October 15, 2025',
-    imageUrl: 'https://via.placeholder.com/600x300',
+    imageUrl: require('../../../assets/Kitchen-Fire.jpg'),
   },
 ];
 
@@ -56,7 +58,7 @@ export const HomeScreen: React.FC = () => {
         navigation.navigate('Profile');
         break;
       case 'settings':
-        Alert.alert('Settings', 'Settings screen coming soon!');
+        navigation.navigate('Settings');
         break;
       case 'help':
         navigation.navigate('Help');
@@ -156,7 +158,6 @@ export const HomeScreen: React.FC = () => {
                 <Ionicons name="search" size={18} color="#999" style={styles.searchIcon} />
                 <TextInput
                   style={styles.searchInput}
-                  placeholder="Search emergency services..."
                   placeholderTextColor="#999"
                 />
               </View>
@@ -205,7 +206,7 @@ export const HomeScreen: React.FC = () => {
               onPress={() => navigation.navigate('Article', { articleId: news.id })}
             >
               <Image
-                source={{ uri: news.imageUrl }}
+                source={news.imageUrl}
                 style={styles.newsImage}
                 resizeMode="cover"
               />
@@ -307,7 +308,7 @@ export const HomeScreen: React.FC = () => {
             
             <TouchableOpacity style={styles.menuItem} onPress={() => handleHamburgerMenu('about')}>
               <Ionicons name="information-circle" size={20} color="#555" />
-              <Text style={styles.menuItemText}>About BFP</Text>
+              <Text style={styles.menuItemText}>About</Text>
             </TouchableOpacity>
             
             <View style={styles.menuDivider} />
@@ -373,7 +374,7 @@ export const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'transparent',
   },
   scrollView: {
     flex: 1,
@@ -384,7 +385,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderBottomLeftRadius: 24,
     borderBottomRightRadius: 24,
-    backgroundColor: '#000',
+    backgroundColor: 'transparent',
   },
   heroBackground: {
     width: '100%',

@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   header: {
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     paddingTop: 20,
     paddingBottom: 24,
     paddingHorizontal: 20,
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   quickEmergencyButton: {
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     borderRadius: 16,
     padding: 24,
     alignItems: 'center',
@@ -430,7 +430,7 @@ const styles = StyleSheet.create({
   },
   confirmButton: {
     flex: 1,
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',

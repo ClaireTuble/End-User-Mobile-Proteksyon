@@ -145,7 +145,7 @@ const HelpScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
@@ -155,26 +155,7 @@ const HelpScreen: React.FC = () => {
           <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Help & FAQ</Text>
-        <TouchableOpacity onPress={handleContactSupport}>
-          <Ionicons name="call" size={24} color="#fff" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Ionicons name="search" size={20} color="#666" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search for help..."
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          placeholderTextColor="#999"
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity onPress={() => setSearchQuery('')}>
-            <Ionicons name="close-circle" size={20} color="#666" />
-          </TouchableOpacity>
-        )}
+        <View style={styles.headerSpacer} />
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
@@ -212,7 +193,7 @@ const HelpScreen: React.FC = () => {
         <View style={styles.faqSection}>
           <Text style={styles.sectionTitle}>Frequently Asked Questions</Text>
           
-          {filteredCategories.map((category) => (
+          {faqCategories.map((category) => (
             <View key={category.id} style={styles.categoryCard}>
               <TouchableOpacity
                 style={styles.categoryHeader}
@@ -294,7 +275,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   header: {
-    backgroundColor: '#B71C1C',
+    backgroundColor: '#860d0dff',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -309,36 +290,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headerSpacer: {
+    width: 40,
+  },
   headerTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: '#fff',
     flex: 1,
     textAlign: 'center',
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    marginHorizontal: 16,
-    marginTop: 16,
-    marginBottom: 8,
-    borderRadius: 24,
-    paddingHorizontal: 16,
-    height: 44,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-  },
-  searchIcon: {
-    marginRight: 8,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 14,
-    color: '#333',
   },
   content: {
     flex: 1,
@@ -495,7 +455,7 @@ const styles = StyleSheet.create({
   },
   emergencyButton: {
     flexDirection: 'row',
-    backgroundColor: '#E53935',
+    backgroundColor: '#860d0dff',
     borderRadius: 24,
     paddingHorizontal: 24,
     paddingVertical: 12,
